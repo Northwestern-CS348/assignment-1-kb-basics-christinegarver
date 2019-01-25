@@ -24,6 +24,7 @@ class KnowledgeBase(object):
             fact (Fact or Rule): Fact or Rule we're asserting in the format produced by read.py
         """
         """if type(fact) is Fact:"""
+
         if isinstance(fact, Fact):
             if fact not in self.facts:
                 self.facts.append(fact)
@@ -39,6 +40,7 @@ class KnowledgeBase(object):
         Returns:
             ListOfBindings|False - ListOfBindings if result found, False otherwise
         """
+
         if isinstance(fact, Fact):
             list_bindings = ListOfBindings()
 
@@ -47,7 +49,6 @@ class KnowledgeBase(object):
                     list_bindings.add_bindings(match(f.statement, fact.statement), fact)
 
             return list_bindings
-
         else:
             return False
 
